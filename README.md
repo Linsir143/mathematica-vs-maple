@@ -164,7 +164,7 @@ time[real](evala(Expand(subs({x = 16513*a^5 - 57476*a^4 - 94123*a^3 + 32924*a^2 
 
 ----
 
-有一个Mathematica比Maple更快的例子。[^在精确线性代数方面 Mathematica 似乎要比 Maple 好很多，一个基础的测试是 1000位整数100*100矩阵乘法(来自 Flint 官网) ]
+有一个Mathematica比Maple更快的例子。
 
 ```mathematica
 eq=RandomInteger[{-100,100},{200,300}].Table[x[i],{i,1,300}]; Solve[eq==0];//AbsoluteTiming 
@@ -177,19 +177,19 @@ time[real](solve(eq))
 
 ---
 
-根据Mark van Hoeij的评论，Maple在代数扩展上实现了更快的多项式最大公因式算法，这可能解释了第1、5和6点。[^Mark van Hoeij，佛罗里达州立大学教授，提出了众多先进算法]
+根据Mark van Hoeij的评论，Maple在代数扩展上实现了更快的多项式最大公因式算法，这可能解释了第1、5和6点。
 
 * https://www.math.fsu.edu/~hoeij/
 * https://www.math.fsu.edu/~hoeij/papers/comments/issac2004.html
 * https://www.math.fsu.edu/~hoeij/files/ConicProgram/COMMENT_Maple11
 
-根据Gert的评论，Maple已实现了一种更先进的Gröbner基算法，这可能是第8点（性能差异）的原因。[^msolve，一个求解多元多项式方程组的C库，实现了最先进的Gröbner算法，具有非常高的求解效率]
+根据Gert的评论，Maple已实现了一种更先进的Gröbner基算法，这可能是第8点（性能差异）的原因。
 
 * https://msolve.lip6.fr/
 * https://hal.sorbonne-universite.fr/hal-03191666/document
 
 
-Maple的`resultant`函数实现代码可通过`showstat(resultant)`查看，而Mathematica的实现代码不可见，这使得第7点（性能差异）难以解释。[^根据一些资料，Mathematica 13.2版本后的结式计算主要通过模方法转化为有限域上的结式，从而可以直接调用Flint计算，再通过中国剩余定理重建结果，但根据测试结果看，算法仍比 Maple 慢很多]
+Maple的`resultant`函数实现代码可通过`showstat(resultant)`查看，而Mathematica的实现代码不可见，这使得第7点（性能差异）难以解释。
 
 ----
 
